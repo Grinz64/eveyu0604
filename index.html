@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<title>Story Flower Garden</title>
+
+<style>
+
+body{
+font-family:sans-serif;
+text-align:center;
+background:#fafafa;
+}
+
+canvas{
+border:1px solid #ddd;
+margin-top:20px;
+}
+
+#popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+#popupContent{
+background:white;
+padding:30px;
+border-radius:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Story Flower Garden 🌸</h1>
+
+<input id="email" placeholder="Your Email">
+
+<input id="color" type="color">
+
+<br><br>
+
+<textarea id="story" placeholder="Write your story"></textarea>
+
+<br><br>
+
+<button id="submitBtn">Create Flower</button>
+
+<br><br>
+
+<input id="searchEmail" placeholder="Search email">
+
+<button id="searchBtn">Find Flower</button>
+
+<br>
+
+<canvas id="canvas" width="900" height="600"></canvas>
+
+<div id="popup">
+<div id="popupContent">
+<h2>Welcome</h2>
+<p>Write a story and create a flower 🌸</p>
+<button onclick="closePopup()">Start</button>
+
+<button id="submitBtn">Start</button>
+</div>
+</div>
+
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
