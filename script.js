@@ -149,7 +149,6 @@ function searchFlower(){
 
 highlightEmail=document.getElementById("searchEmail").value;
 
-document.getElementById("searchEmail").value = "";
 
 }
 
