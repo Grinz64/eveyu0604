@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -10,12 +11,17 @@
 body{
 font-family:sans-serif;
 text-align:center;
-background:#fafafa;
+background:#f6f6f6;
 }
 
 canvas{
-border:1px solid #ddd;
+border:1px solid #ccc;
 margin-top:20px;
+}
+
+textarea{
+width:300px;
+height:80px;
 }
 
 #popup{
@@ -30,7 +36,7 @@ justify-content:center;
 align-items:center;
 }
 
-#popupContent{
+#popupBox{
 background:white;
 padding:30px;
 border-radius:10px;
@@ -44,6 +50,8 @@ border-radius:10px;
 
 <h1>Story Flower Garden 🌸</h1>
 
+<div>
+
 <input id="email" placeholder="Your Email">
 
 <input id="color" type="color">
@@ -54,29 +62,40 @@ border-radius:10px;
 
 <br><br>
 
-<button id="submitBtn">Create Flower</button>
+<button id="createFlower">Create Flower</button>
 
-<br><br>
-
-<input id="searchEmail" placeholder="Search email">
-
-<button id="searchBtn">Find Flower</button>
+</div>
 
 <br>
 
-<canvas id="canvas" width="900" height="600"></canvas>
+<div>
+
+<input id="searchEmail" placeholder="Search your email">
+
+<button id="searchFlower">Find My Flower</button>
+
+</div>
+
+<canvas id="garden" width="900" height="600"></canvas>
 
 <div id="popup">
-<div id="popupContent">
-<h2>Welcome</h2>
-<p>Write a story and create a flower 🌸</p>
+
+<div id="popupBox">
+
+<h2>Welcome 🌸</h2>
+
+<p>
+Write a story and choose a color.<br>
+Your story will become a flower.
+</p>
+
 <button onclick="closePopup()">Start</button>
 
-<button id="submitBtn">Start</button>
-</div>
 </div>
 
-<script type="module" src="app.js"></script>
+</div>
+
+<script type="module" src="script.js"></script>
 
 </body>
 </html>
