@@ -207,6 +207,15 @@ function clearAllFlowers(){
     }
 }
 
+// 清空全部花
+function clearAllFlowers(){
+    if(confirm("Are you sure you want to delete ALL flowers? 🌸")) {
+        flowers = [];
+        saveFlowers();  // 同步 localStorage
+        render();       // 立即刷新畫布
+    }
+}
+
 // 刪掉指定 email 的花
 function deleteFlowerByEmail(){
     const emailToDelete = document.getElementById("deleteEmail").value.trim();
@@ -214,7 +223,8 @@ function deleteFlowerByEmail(){
 
     const beforeCount = flowers.length;
     flowers = flowers.filter(f => f.email !== emailToDelete);
-    localStorage.setItem("flowers", JSON.stringify(flowers));
+    saveFlowers();      // 同步 localStorage
+    render();           // 立即刷新畫布
     const afterCount = flowers.length;
 
     if(beforeCount === afterCount){
