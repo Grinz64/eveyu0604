@@ -197,3 +197,31 @@ function closePopup(){
 document.getElementById("popup").style.display="none";
 
 }
+
+
+// 清空全部花
+function clearAllFlowers(){
+    if(confirm("Are you sure you want to delete ALL flowers? 🌸")) {
+        flowers = [];
+        localStorage.removeItem("flowers");
+    }
+}
+
+// 刪掉指定 email 的花
+function deleteFlowerByEmail(){
+    const emailToDelete = document.getElementById("deleteEmail").value.trim();
+    if(emailToDelete === "") return alert("Please enter an email to delete.");
+
+    const beforeCount = flowers.length;
+    flowers = flowers.filter(f => f.email !== emailToDelete);
+    localStorage.setItem("flowers", JSON.stringify(flowers));
+    const afterCount = flowers.length;
+
+    if(beforeCount === afterCount){
+        alert("No flower found with this email.");
+    } else {
+        alert(`Deleted ${beforeCount - afterCount} flower(s) for ${emailToDelete}.`);
+    }
+
+    document.getElementById("deleteEmail").value = "";
+}
