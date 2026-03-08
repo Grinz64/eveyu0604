@@ -24,6 +24,21 @@ let pulse = Math.sin(Date.now()*0.003)*2;
 
 let size = 20 * f.growth + pulse;
 
+let ground = canvas.height - 40;
+
+// 莖
+ctx.beginPath();
+
+ctx.moveTo(f.x,ground);
+
+ctx.lineTo(f.x,f.y);
+
+ctx.lineWidth = 4;
+
+ctx.strokeStyle = "#3aa655";
+
+ctx.stroke();
+
 let dist = Math.hypot(mouseX-f.x,mouseY-f.y);
 
 let glow = dist < 80;
@@ -33,6 +48,7 @@ for(let i=0;i<8;i++){
 let angle = i * Math.PI/4;
 
 let px = f.x + Math.cos(angle)*size;
+
 let py = f.y + Math.sin(angle)*size;
 
 ctx.beginPath();
@@ -45,23 +61,24 @@ ctx.fill();
 
 }
 
+// 花心
 ctx.beginPath();
 
 ctx.arc(f.x,f.y,10*f.growth,0,Math.PI*2);
 
 if(f.email===highlightEmail || glow){
 
-ctx.shadowBlur=25;
+ctx.shadowBlur = 35;
 
-ctx.shadowColor=f.color;
+ctx.shadowColor = "rgba(255,240,170,0.9)";
 
 }else{
 
-ctx.shadowBlur=0;
+ctx.shadowBlur = 0;
 
 }
 
-ctx.fillStyle="yellow";
+ctx.fillStyle = "#ffd966";
 
 ctx.fill();
 
@@ -111,7 +128,7 @@ color,
 
 x:Math.random()*canvas.width,
 
-y:Math.random()*canvas.height,
+y:Math.random()*300 + 120,
 
 growth:0
 
@@ -120,6 +137,9 @@ growth:0
 flowers.push(flower);
 
 saveFlowers();
+document.getElementById("email").value = "";
+document.getElementById("story").value = "";
+document.getElementById("color").value = "#ff66cc";
 
 }
 
